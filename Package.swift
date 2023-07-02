@@ -26,29 +26,15 @@ let package = Package(
     // Products define the executables and libraries a package produces, and make them visible to other packages.
     .library(
       name: "RecaptchaEnterprise",
-      targets: ["recaptcha-enterprise"]
-    ),
-    .library(
-      name: "RecaptchaInterop",
-      targets: ["RecaptchaInterop"]
+      targets: ["RecaptchaEnterprise"]
     )
   ],
   dependencies: [],
   targets: [
-    .target(
-      name: "recaptcha-enterprise",
-      dependencies: ["RecaptchaEnterprise", "RecaptchaInterop"],
-      publicHeadersPath: "."
-    ),
     .binaryTarget(
       name: "RecaptchaEnterprise",
       url: "https://dl.google.com/recaptchaenterprise/v18.2.1/RecaptchaEnterprise_iOS_xcframework/recaptcha-xcframework.xcframework.zip",
       checksum: "ba7d7e214c776a54a85a0df643f77bc3cd16425c69b35e3406c06dcf3a4844ff"
-    ),
-    .target(
-      name: "RecaptchaInterop",
-      path: "Sources/Interop",
-      publicHeadersPath: "."
     )
   ]
 )
